@@ -10,6 +10,21 @@ You are given two linked lists representing two non-negative numbers. The digits
 
 thinking :
 
+	About SinglyLinkedList
+	单向链表（单链表）是链表的一种，其特点是链表的链接方向是单向的，对链表的访问要通过顺序读取从头部开始。
+	单向链表的数据结构可以分为两部分：数据域和指针域，数据域存储数据，指针域指向下一个储存节点的地址。
+	链表的结点包含二个域：
+
+	1）数据域，当前结点的值
+
+	2）指针域，指向下一个结点
+	
+	链表的一些操作，主要是针对结点之间的操作，一般只是修改结点之间的指针指向。
+
+	在此，对链表插入元素到头部用图片说明，其他操作类似。
+	
+![img](https://upload.wikimedia.org/wikipedia/commons/4/45/Link_zh.png "desc")
+
 	not finished has error
 	
 code :
