@@ -25,7 +25,6 @@ thinking :
 	
 ![img](https://upload.wikimedia.org/wikipedia/commons/4/45/Link_zh.png "desc")
 
-	not finished has error
 	
 code :
 
