@@ -28,6 +28,8 @@ thinking :
 	not finished has error
 	
 code :
+
+	初始代码：
 	
 	/**
  	* Definition for singly-linked list.
@@ -75,5 +77,59 @@ code :
         
         	return resultList;
     	}
+	}
+	
+	运行后发现，输入为[5],[5] 但是输出为[1]，理论上输出应为[0,1]，发现代码中返回的resultList指向队列的最后一个值，故出现此错误，增加tempList，提交后，报错：输入[1],[9,9]，但输出[0,10]，理论输出[0,0,1]，发现相加后如有增量，应在值相加时加上，并做修改。
+	
+	Accept代码如下：
+	/**
+ 	* Definition for singly-linked list.
+ 	* public class ListNode {
+ 	*     int val;
+ 	*     ListNode next;
+ 	*     ListNode(int x) { val = x; }
+ 	* }
+ 	*/
+	public class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode resultList = null;
+        ListNode tempList = null;
+        int temp = 0;
+        while(l1!=null || l2!=null){
+            int addResult = (l1!=null ? l1.val : 0) + (l2!=null ? l2.val : 0) + (temp == 1? 1:0);
+            int addResult2 = addResult % 10;
+            if(resultList == null){
+                resultList = new ListNode(addResult2);
+                tempList = resultList;
+            }else{
+                ListNode nextNode = new ListNode(addResult2);
+                tempList.next = nextNode;
+                tempList = nextNode;
+            }
+            if(l1!=null){
+                l1 = l1.next;
+            }
+            if(l2 != null){
+                l2 = l2.next;
+            }
+            if(addResult >= 10){
+                temp = 1;
+            }else{
+                temp = 0;
+            }
+        }
+        if(temp == 1){
+            if(resultList == null){
+                tempList = new ListNode(1);
+                resultList = tempList;
+            }else{
+                ListNode nextNode = new ListNode(1);
+                tempList.next = nextNode;
+                tempList = nextNode;
+            }
+        }
+        
+       return resultList;
+    }
 	}
 
